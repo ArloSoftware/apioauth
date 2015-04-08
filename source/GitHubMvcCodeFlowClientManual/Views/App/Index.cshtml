@@ -1,0 +1,43 @@
+﻿@using MvcCodeFlowClientManual.Controllers
+@using MvcCodeFlowClientManual.Models
+@model AppContainer
+@{
+    ViewBag.Title = "Index";
+}
+
+<p></p>
+@if (!String.IsNullOrEmpty(Model.Message)) {
+    <span style="color: red;">@Model.Message</span>
+}
+
+<h2>Claims</h2>
+
+<dl>
+    @foreach (var claim in Model.GroupedClaims)
+    {
+        <dt>
+            @claim.Key
+        </dt>
+        
+        <dd>
+            @claim.Value
+        </dd>
+    }
+</dl>
+
+<h3 style="color: green;">Service call</h3>
+<p>
+    @Html.Partial("ServiceCall", 
+        new ServiceCall {  Url = DefaultClientConfiguration.ArloAuthApiGetEvents,
+                           AccessToken = Model.GroupedClaims.FirstOrDefault(c => c.Key == "access_token").Value
+        })
+</p>
+
+<h3 style="color: green;">Other actions</h3>
+<p>
+    @Html.ActionLink("Refresh token", "RefreshToken")
+</p>
+
+<p>
+    <a href="@Constants.PermissionsEndpoint" target="_blank">Permissions</a>
+</p>

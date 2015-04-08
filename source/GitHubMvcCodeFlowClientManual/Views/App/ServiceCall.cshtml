@@ -1,0 +1,11 @@
+﻿@model MvcCodeFlowClientManual.Models.ServiceCall
+@using (Html.BeginForm("CallArloService", "App")) {
+    @Html.LabelFor(m => m.Url)<br/>@Html.TextBoxFor(m => m.Url, new { Style = "max-width: 700px; width: 700px;" })<br/>
+    @Html.LabelFor(m => m.Simulation)<br/>
+    <text>None </text>@Html.RadioButtonFor(m => m.Simulation, "None", new { Checked = "checked" })<br/>
+    <text>Empty token </text>@Html.RadioButtonFor(m => m.Simulation, "Empty token")<br />
+    <text>Random token </text>@Html.RadioButtonFor(m => m.Simulation, "Random token")<br />
+    @Html.HiddenFor(m => m.AccessToken)
+    <br/>
+    <input type="submit" class="btn btn-primary" value="Execute" />
+}
