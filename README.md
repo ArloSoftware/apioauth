@@ -3,9 +3,8 @@
 OAuth sample clients demonstrating the use of OAuth 2.0 with the <a href='https://www.arlo.co/'>Arlo</a> Authenticated REST API.
 
 <strong>Source</strong><br/>
-The source directory has, at the time of writing, two folders:
+The source directory has, at the time of writing, a single folder:
 <ul>
-<li>GitHubOAuthClients - this is where the sample solution file lives</li>
 <li>GitHubMvcCodeFlowClientManual - houses the project for the authorization code flow sample</li>
 </ul>
 
